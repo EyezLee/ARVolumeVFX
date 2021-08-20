@@ -37,4 +37,7 @@ sysinfo.txt
 *.unitypackage
 
 com.kyrylokuzyk.arfoundationremote
-ARFoundationRemoteInstaller
+ARFoundationRemoteInstaller 
+
+Packages/com.kyrylokuzyk.arfoundationremote
+Assets/Plugins/ARFoundationRemoteInstaller
