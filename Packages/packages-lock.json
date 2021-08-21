@@ -32,15 +32,6 @@
       "dependencies": {},
       "url": "https://packages.unity.com"
     },
-    "com.unity.ide.rider": {
-      "version": "3.0.7",
-      "depth": 0,
-      "source": "registry",
-      "dependencies": {
-        "com.unity.ext.nunit": "1.0.6"
-      },
-      "url": "https://packages.unity.com"
-    },
     "com.unity.ide.visualstudio": {
       "version": "2.0.9",
       "depth": 0,
@@ -168,13 +159,14 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.xr.arfoundation": {
-      "version": "file:com.unity.xr.arfoundation@4.2.0-pre.5",
+      "version": "4.2.0-pre.12",
       "depth": 0,
-      "source": "embedded",
+      "source": "registry",
       "dependencies": {
-        "com.unity.xr.arsubsystems": "4.2.0-pre.5",
+        "com.unity.xr.arsubsystems": "4.2.0-pre.12",
         "com.unity.xr.management": "4.0.1"
-      }
+      },
+      "url": "https://packages.unity.com"
     },
     "com.unity.xr.arkit": {
       "version": "4.2.0-pre.4",
@@ -198,11 +190,12 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.xr.arsubsystems": {
-      "version": "4.2.0-pre.5",
+      "version": "4.2.0-pre.12",
       "depth": 1,
       "source": "registry",
       "dependencies": {
-        "com.unity.subsystemregistration": "1.1.0"
+        "com.unity.subsystemregistration": "1.1.0",
+        "com.unity.xr.management": "4.0.1"
       },
       "url": "https://packages.unity.com"
     },
