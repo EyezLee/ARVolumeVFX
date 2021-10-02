@@ -45,3 +45,17 @@ The following packages were added:
   com.unity.timeline@1.6.1
   com.unity.ugui@1.0.0
   com.unity.visualscripting@1.7.2
+
+=== Sat Oct  2 15:43:57 2021
+
+Packages were changed.
+Update Mode: updateDependencies
+
+The following packages were updated:
+  com.unity.collab-proxy from version 1.7.1 to 1.9.0
+  com.unity.ide.vscode from version 1.2.3 to 1.2.4
+  com.unity.test-framework from version 1.1.26 to 1.1.29
+  com.unity.timeline from version 1.6.1 to 1.6.2
+  com.unity.xr.arfoundation from version 4.2.0-pre.12 to 4.2.0
+  com.unity.xr.arkit from version 4.2.0-pre.4 to 4.2.0
+  com.unity.xr.arkit-face-tracking from version 4.2.0-pre.4 to 4.2.0
