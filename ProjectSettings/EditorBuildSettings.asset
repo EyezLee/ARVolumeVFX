@@ -11,9 +11,17 @@ EditorBuildSettings:
   - enabled: 0
     path: 
     guid: 00000000000000000000000000000000
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/AROcclusionTest.unity
     guid: 97fd7cd3fd5614480a0837eecaf3f1de
+  - enabled: 0
+    path: Assets/Plugins/ARFoundationRemoteInstaller/Examples/ARKit HumanSegmentationExample.unity
+    guid: ac40a0e9f038043f1b9de3461fd3c2ab
+  - enabled: 1
+    path: Assets/Plugins/ARFoundationRemoteInstaller/Examples/CpuImagesExample.unity
+    guid: 5d9efc1489e0e47679866a79481fbf39
   m_configObjects:
+    AR Foundation RemoteARFoundationRemoteLoaderSettings: {fileID: 11400000, guid: 7e7c6c398ee494e639e6d751da311663, type: 2}
+    AR Foundation RemoteARFoundationRemoteSessionRecordsData: {fileID: 11400000, guid: bbca7f4ffcd244203959dac6c58ab81e, type: 2}
     UnityEditor.XR.ARKit.ARKitSettings: {fileID: 11400000, guid: a63510ee77c6a8d47a18c5b241617c7f, type: 2}
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: a496402b9387a6b48b634dad6115e742, type: 2}
