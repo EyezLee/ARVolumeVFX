@@ -226,3 +226,9 @@ Received Import Request.
   path: Assets/Shaders/Common.shader
   artifactKey: Guid(bf3850279df454938a68bd87436d10f3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
 Start importing Assets/Shaders/Common.shader using Guid(bf3850279df454938a68bd87436d10f3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0ec11533ee4bd2c0f85a9ffcc02b1eeb') in 0.003583 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 34.698644 seconds.
+  path: Assets/Scripts/LidarDataProcessor.cs
+  artifactKey: Guid(0a3442368a30e439ca45ccce3d5f496d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/LidarDataProcessor.cs using Guid(0a3442368a30e439ca45ccce3d5f496d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e16f0144dfeec6f8f21655edea6f76e7') in 0.429312 seconds 
