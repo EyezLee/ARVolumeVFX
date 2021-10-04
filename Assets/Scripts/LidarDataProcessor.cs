@@ -37,7 +37,7 @@ public class LidarDataProcessor : MonoBehaviour
     Material _bgMaterial;
     Material _muxMaterial;
 
-    RenderTexture _outputTex;
+    [HideInInspector] public RenderTexture _outputTex;
 
     #endregion
 

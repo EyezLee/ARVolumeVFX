@@ -11,13 +11,13 @@ EditorBuildSettings:
   - enabled: 0
     path: 
     guid: 00000000000000000000000000000000
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/AROcclusionTest.unity
     guid: 97fd7cd3fd5614480a0837eecaf3f1de
   - enabled: 0
     path: Assets/Plugins/ARFoundationRemoteInstaller/Examples/ARKit HumanSegmentationExample.unity
     guid: ac40a0e9f038043f1b9de3461fd3c2ab
-  - enabled: 1
+  - enabled: 0
     path: Assets/Plugins/ARFoundationRemoteInstaller/Examples/CpuImagesExample.unity
     guid: 5d9efc1489e0e47679866a79481fbf39
   m_configObjects:
