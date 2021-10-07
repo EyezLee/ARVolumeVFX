@@ -37,7 +37,7 @@ public class LidarDataProcessor : MonoBehaviour
 
 
     //Material _bgMaterial;
-    Material _muxMaterial;
+    Material _textureProcessMaterial;
 
     [HideInInspector] public RenderTexture _outputTex;
     RenderTexture _colorTexture;
@@ -66,9 +66,9 @@ public class LidarDataProcessor : MonoBehaviour
             var id = args.propertyNameIds[i];
             var tex = args.textures[i];
             if (id == ShaderID.TextureY)
-                _muxMaterial.SetTexture(ShaderID.TextureY, tex);
+                _textureProcessMaterial.SetTexture(ShaderID.TextureY, tex);
             else if (id == ShaderID.TextureCbCr)
-                _muxMaterial.SetTexture(ShaderID.TextureCbCr, tex);
+                _textureProcessMaterial.SetTexture(ShaderID.TextureCbCr, tex);
         }
 
         // Try receiving the projection matrix.
@@ -91,7 +91,7 @@ public class LidarDataProcessor : MonoBehaviour
         // Aspect ratio compensation factor for the multiplexer
         var aspectFix = texAspect / (16.0f / 9);
         //_bgMaterial.SetFloat(ShaderID.AspectFix, aspectFix);
-        _muxMaterial.SetFloat(ShaderID.AspectFix, aspectFix);
+        _textureProcessMaterial.SetFloat(ShaderID.AspectFix, aspectFix);
     }
 
 
@@ -103,9 +103,9 @@ public class LidarDataProcessor : MonoBehaviour
             var id = args.propertyNameIds[i];
             var tex = args.textures[i];
             if (id == ShaderID.HumanStencil)
-                _muxMaterial.SetTexture(ShaderID.HumanStencil, tex);
+                _textureProcessMaterial.SetTexture(ShaderID.HumanStencil, tex);
             else if (id == ShaderID.EnvironmentDepth)
-                _muxMaterial.SetTexture(ShaderID.EnvironmentDepth, tex);
+                _textureProcessMaterial.SetTexture(ShaderID.EnvironmentDepth, tex);
         }
     }
 
@@ -130,8 +130,8 @@ public class LidarDataProcessor : MonoBehaviour
         //_bgMaterial = new Material(_textureProcessShader);
         //_bgMaterial.EnableKeyword("RCAM_MONITOR");
 
-        _muxMaterial = new Material(_textureProcessShader);
-        _muxMaterial.EnableKeyword("RCAM_MULTIPLEXER");
+        _textureProcessMaterial = new Material(_textureProcessShader);
+        //_textureProcessMaterial.EnableKeyword("RCAM_MULTIPLEXER");
 
         // Custom background material
         //_cameraBackground.customMaterial = _bgMaterial;
@@ -150,10 +150,14 @@ public class LidarDataProcessor : MonoBehaviour
         // Parameter update
         var range = new Vector2(_minDepth, _maxDepth);
         //_bgMaterial.SetVector(ShaderID.DepthRange, range);
-        _muxMaterial.SetVector(ShaderID.DepthRange, range);
+        _textureProcessMaterial.SetVector(ShaderID.DepthRange, range);
 
-        // NDI sender RT update
-        Graphics.Blit(null, _outputTex, _muxMaterial, 0);
+        // lidar color/depth textures update
+        Graphics.Blit(null, _colorTexture, _textureProcessMaterial, 0);
+        Graphics.Blit(null, _depthTexture, _textureProcessMaterial, 1);
+        // test only
+        Graphics.Blit(null, _depthTexture, _textureProcessMaterial, 1);
+
     }
 
     private void OnRenderObject()
