@@ -15,7 +15,7 @@ Shader "Custom/Rcam2/TextureProcess"
         {
             HLSLPROGRAM
             #define LIDAR_COLOR
-            #include "TextureProgress.hlsl"
+            #include "TextureProcess.hlsl"
             #pragma vertex Vertex
             #pragma fragment Fragment
             ENDHLSL
@@ -24,7 +24,7 @@ Shader "Custom/Rcam2/TextureProcess"
         {
             HLSLPROGRAM
             #define LIDAR_DEPTH
-            #include "TextureProgress.hlsl"
+            #include "TextureProcess.hlsl"
             #pragma vertex Vertex
             #pragma fragment Fragment
             ENDHLSL
