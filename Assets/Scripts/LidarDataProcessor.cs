@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR.ARFoundation;
 
-
 public class LidarDataProcessor : MonoBehaviour
 {
     #region External scene object references
@@ -31,16 +30,30 @@ public class LidarDataProcessor : MonoBehaviour
     const int _width = 2048;
     const int _height = 1024;
 
-
+    //  transformation info
     Matrix4x4 _projection;
+    Vector3 _cameraPosition;
+    Quaternion _cameraRotation;
+
 
     Material _bgMaterial;
     Material _muxMaterial;
 
     [HideInInspector] public RenderTexture _outputTex;
+    RenderTexture _colorTexture;
+    RenderTexture _depthTexture;
+
+    public LidarData lidarData = new LidarData();
 
     #endregion
 
+    // make camera to world matrix from camera postion and rotation
+    Matrix4x4 CalculateCameraToWorldMatrix()
+    {
+        if (_cameraPosition == Vector3.zero) return Matrix4x4.identity;
+        return Matrix4x4.TRS
+          (_cameraPosition, _cameraRotation, new Vector3(1, 1, -1));
+    }
 
     void OnCameraFrameReceived(ARCameraFrameEventArgs args)
     {
@@ -66,6 +79,10 @@ public class LidarDataProcessor : MonoBehaviour
             // Aspect ratio compensation (camera vs. 16:9)
             _projection[1, 1] *= (16.0f / 9) / _camera.aspect;
         }
+
+        // receive camera position and rotation
+        _cameraPosition = _camera.transform.position;
+        _cameraRotation = _camera.transform.rotation;
 
         // Use the first texture to calculate the source texture aspect ratio.
         var tex1 = args.textures[0];
@@ -135,4 +152,15 @@ public class LidarDataProcessor : MonoBehaviour
         Graphics.Blit(null, _outputTex, _muxMaterial, 0);
     }
 
+    private void OnRenderObject()
+    {
+        lidarData = new LidarData
+        {
+            CameraToWorldMatrix = CalculateCameraToWorldMatrix(),
+            projectionMatrix = _projection,
+            DepthRange = new Vector2(_minDepth, _maxDepth),
+            DepthTexture = _depthTexture,
+            ColorTexture = _colorTexture
+        };
+    }
 }
