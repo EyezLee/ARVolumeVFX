@@ -156,7 +156,7 @@ public class LidarDataProcessor : MonoBehaviour
         Graphics.Blit(null, _colorTexture, _textureProcessMaterial, 0);
         Graphics.Blit(null, _depthTexture, _textureProcessMaterial, 1);
         // test only
-        Graphics.Blit(null, _depthTexture, _textureProcessMaterial, 1);
+        Graphics.Blit(null, _outputTex, _textureProcessMaterial, 1);
 
     }
 

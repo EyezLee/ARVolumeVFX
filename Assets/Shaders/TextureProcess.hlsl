@@ -27,8 +27,8 @@ void Vertex(float4 vertex : POSITION,
             out float4 outVertex : SV_Position,
             out float2 outTexCoord : TEXCOORD)
 {
-    //outVertex = UnityObjectToClipPos(vertex);
-    outVertex = float4(vertex.x * 2 - 1, 1 - vertex.y * 2, 1, 1);
+    outVertex = UnityObjectToClipPos(vertex);
+    //outVertex = float4(vertex.x * 2 - 1, 1 - vertex.y * 2, 1, 1);
 
     outTexCoord = texCoord;
 }
