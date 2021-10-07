@@ -12,7 +12,7 @@ public class LidarDataProcessor : MonoBehaviour
     [SerializeField] ARCameraManager _cameraManager = null;
     [SerializeField] ARCameraBackground _cameraBackground = null;
     [SerializeField] AROcclusionManager _occlusionManager = null;
-    [SerializeField] Shader _shader = null;
+    [SerializeField] Shader _textureProcessShader = null;
 
     #endregion
 
@@ -36,7 +36,7 @@ public class LidarDataProcessor : MonoBehaviour
     Quaternion _cameraRotation;
 
 
-    Material _bgMaterial;
+    //Material _bgMaterial;
     Material _muxMaterial;
 
     [HideInInspector] public RenderTexture _outputTex;
@@ -90,7 +90,7 @@ public class LidarDataProcessor : MonoBehaviour
 
         // Aspect ratio compensation factor for the multiplexer
         var aspectFix = texAspect / (16.0f / 9);
-        _bgMaterial.SetFloat(ShaderID.AspectFix, aspectFix);
+        //_bgMaterial.SetFloat(ShaderID.AspectFix, aspectFix);
         _muxMaterial.SetFloat(ShaderID.AspectFix, aspectFix);
     }
 
@@ -127,25 +127,29 @@ public class LidarDataProcessor : MonoBehaviour
     private void Start()
     {
         // Shader setup
-        _bgMaterial = new Material(_shader);
-        _bgMaterial.EnableKeyword("RCAM_MONITOR");
+        //_bgMaterial = new Material(_textureProcessShader);
+        //_bgMaterial.EnableKeyword("RCAM_MONITOR");
 
-        _muxMaterial = new Material(_shader);
+        _muxMaterial = new Material(_textureProcessShader);
         _muxMaterial.EnableKeyword("RCAM_MULTIPLEXER");
 
         // Custom background material
-        _cameraBackground.customMaterial = _bgMaterial;
-        _cameraBackground.useCustomMaterial = true;
+        //_cameraBackground.customMaterial = _bgMaterial;
+        //_cameraBackground.useCustomMaterial = true;
 
         _outputTex = new RenderTexture(_width, _height, 0);
         _outputTex.Create();
+        _colorTexture = new RenderTexture(_width, _height, 0);
+        _colorTexture.Create();
+        _depthTexture = new RenderTexture(_width, _height, 0);
+        _depthTexture.Create();
     }
 
     private void Update()
     {
         // Parameter update
         var range = new Vector2(_minDepth, _maxDepth);
-        _bgMaterial.SetVector(ShaderID.DepthRange, range);
+        //_bgMaterial.SetVector(ShaderID.DepthRange, range);
         _muxMaterial.SetVector(ShaderID.DepthRange, range);
 
         // NDI sender RT update
