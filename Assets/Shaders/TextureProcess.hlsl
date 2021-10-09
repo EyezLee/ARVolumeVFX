@@ -37,7 +37,7 @@ void Vertex(float4 vertex : POSITION,
 float4 Fragment(float4 vertex : SV_Position,
                 float2 texCoord : TEXCOORD0) : SV_Target
 {
-    float4 tc = frac(texCoord.xyxy * float4(1, 1, 2, 2));
+    float4 tc = frac(texCoord.xyxy);
 
     // Aspect ration compensation & vertical flip
     tc.yw = (0.5 - tc.yw) * _AspectFix + 0.5;
@@ -70,14 +70,13 @@ float3 Hue2RGB(float hue)
 float4 Fragment(float4 vertex : SV_Position,
                 float2 texCoord : TEXCOORD0) : SV_Target
 {
-    float4 tc = frac(texCoord.xyxy * float4(1, 1, 2, 2));
+    float4 tc = frac(texCoord.xyxy);
     // Aspect ration compensation & vertical flip
     tc.yw = (0.5 - tc.yw) * _AspectFix + 0.5;
 
     float depth = tex2D(_EnvironmentDepth, tc.zw).x;
     depth = (depth - _DepthRange.x) / (_DepthRange.y - _DepthRange.x);
-    //float3 c2 = Hue2RGB(clamp(depth, 0, 0.8));
-    return lerp(_DepthRange.x, _DepthRange.y, depth);
-    
+    depth = lerp(_DepthRange.x, _DepthRange.y, depth);
+    return float4(depth, 0, 0, 1);
 }
 #endif

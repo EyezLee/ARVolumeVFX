@@ -1,4 +1,4 @@
-Shader "Custom/Rcam2/TextureProcess"
+Shader "Custom/AR/TextureProcess"
 {
     Properties
     {
