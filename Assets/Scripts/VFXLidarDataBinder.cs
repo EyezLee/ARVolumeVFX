@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.VFX;
 using UnityEngine.VFX.Utility;
 
+[VFXBinder("LidarData")]
 public class VFXLidarDataBinder : VFXBinderBase
 {
     public string ColorMapProperty
