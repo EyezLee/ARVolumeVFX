@@ -22,8 +22,8 @@ One device solution, no any sort of connection needed! (early access, under cons
 ## Example
 https://user-images.githubusercontent.com/18374192/137863804-2e6d2db7-0a59-4e6f-944c-f552e1dd8ad5.mov
 
-_(debug example of using human silhouette alone with depth data from ipad in VFXGraph)
-_
+_debug example of using human silhouette alone with depth data from ipad in VFXGraph
+
 
 ## Resouce
    https://github.com/keijiro/Rcam2
