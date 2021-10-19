@@ -1,5 +1,6 @@
 # ARVolumeVFX
- A tool to bridge VFX Graph with processed depth, color, human silhouette and environment data retrieved from Lidar sensor of an AR enabled device. It enables users to play VFX Graph in AR world to its maximum possibility, in actual volumetrix data rather than screen spaced post processing AR old fashion. (early demo, under construction) 
+ A tool to bridge VFX Graph with processed depth, color, human silhouette and environment data retrieved from Lidar sensor of an AR enabled device. It enables users to play VFX Graph in AR world to its maximum possibility, in actual volumetrix data rather than screen spaced post processing AR old fashion.
+One device solution, no any sort of connection needed! (early demo, under construction) 
  
 ## Environment Requirements
    - Unity 2021.2 beta 16 / Unity 2022.1 alpha 12
