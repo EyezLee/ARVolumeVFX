@@ -1,5 +1,5 @@
 # ARVolumeVFX
- A tool to bridge VFX Graph with processed depth, color, human silhouette and environment data retrieved from Lidar sensor of an AR enabled device. It enables users to play VFX Graph in AR world to its maximum possibility, in actual volumetrix data rather than screen spaced post processing AR old fashion.
+ A tool to bridge VFX Graph with processed volumetric data (ig. depth, color, human silhouette, environment data) retrieved from Lidar sensor of an AR enabled device. It enables users to play VFX Graph in AR world to its maximum possibilities.
 One device solution, no any sort of connection needed! (early access, under construction) 
  
 ## Environment Requirements
