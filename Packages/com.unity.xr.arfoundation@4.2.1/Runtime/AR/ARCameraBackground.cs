@@ -430,7 +430,9 @@ namespace UnityEngine.XR.ARFoundation
         {
             // AR_FOUNDATION_EDITOR_REMOTE: calling commandBuffer.IssuePluginEvent is crashing Unity Editor 2019.2 and freezing newer versions of Unity
             #if UNITY_EDITOR
-            return;
+            if (Application.isEditor) {
+                return;
+            }
             #endif
             // AR_FOUNDATION_EDITOR_REMOTE***
             commandBuffer.IssuePluginEvent(s_BeforeBackgroundRenderHandlerFuncPtr, 0);
