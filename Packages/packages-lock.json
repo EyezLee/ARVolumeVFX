@@ -1,7 +1,7 @@
 {
   "dependencies": {
     "com.kyrylokuzyk.arfoundationremote": {
-      "version": "file:../Assets/Plugins/ARFoundationRemoteInstaller/com.kyrylokuzyk.arfoundationremote.tgz",
+      "version": "file:..\\Assets\\Plugins\\ARFoundationRemoteInstaller\\com.kyrylokuzyk.arfoundationremote.tgz",
       "depth": 0,
       "source": "local-tarball",
       "dependencies": {
