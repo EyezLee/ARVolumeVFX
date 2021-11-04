@@ -20,6 +20,11 @@ public class VFXLidarDataBinder : VFXBinderBase
         set => _depthMapProperty = value;
     }
 
+    public string EnvironmentMeshProperty
+    {
+        get => (string)_environmentMeshProperty;
+        set => _environmentMeshProperty = value;
+    }
     public string ProjectionVectorProperty
     {
         get => (string)_projectionVectorProperty;
@@ -37,6 +42,9 @@ public class VFXLidarDataBinder : VFXBinderBase
 
     [VFXPropertyBinding("UnityEngine.Texture2D"), SerializeField]
     ExposedProperty _depthMapProperty = "DepthMap";
+
+    [VFXPropertyBinding("UnityEngine.Mesh"), SerializeField]
+    ExposedProperty _environmentMeshProperty = "EnvironmentMesh";
 
     [VFXPropertyBinding("UnityEngine.Vector4"), SerializeField]
     ExposedProperty _projectionVectorProperty = "ProjectionVector";
@@ -57,6 +65,7 @@ public class VFXLidarDataBinder : VFXBinderBase
 
         if (vfxMenu.UseColorMap) isValid &= component.HasTexture(_colorMapProperty);
         if (vfxMenu.UseDepthMap) isValid &= component.HasTexture(_depthMapProperty);
+        if (vfxMenu.UseEnvironmentMesh) isValid &= component.HasMesh((_environmentMeshProperty));
         isValid &= component.HasVector4(_projectionVectorProperty);
         isValid &= component.HasMatrix4x4(_inverseViewMatrixProperty);
 
@@ -70,6 +79,7 @@ public class VFXLidarDataBinder : VFXBinderBase
         var v2w = lidar.lidarData.CameraToWorldMatrix;
         if(vfxMenu.UseColorMap) component.SetTexture(_colorMapProperty, lidar.lidarData.ColorTexture);
         if(vfxMenu.UseDepthMap) component.SetTexture(_depthMapProperty, lidar.lidarData.DepthTexture);
+        if (vfxMenu.UseEnvironmentMesh) component.SetMesh(_environmentMeshProperty, lidar.lidarData.EnvironmentMesh);
         component.SetVector4(_projectionVectorProperty, prj);
         component.SetMatrix4x4(_inverseViewMatrixProperty, v2w);
     }

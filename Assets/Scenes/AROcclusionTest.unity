@@ -468,14 +468,14 @@ GameObject:
   - component: {fileID: 485262187}
   - component: {fileID: 485262186}
   - component: {fileID: 485262190}
-  - component: {fileID: 485262189}
+  - component: {fileID: 485262191}
   m_Layer: 0
   m_Name: EnvMesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!73398921 &485262186
 VFXRenderer:
   serializedVersion: 1
@@ -484,7 +484,7 @@ VFXRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 485262185}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -550,7 +550,10 @@ VisualEffect:
     m_Gradient:
       m_Array: []
     m_NamedObject:
-      m_Array: []
+      m_Array:
+      - m_Value: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
+        m_Name: EnvironmentMesh
+        m_Overridden: 1
     m_Bool:
       m_Array: []
 --- !u!4 &485262188
@@ -568,21 +571,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &485262189
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 485262185}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e119f57e51432c45b9613fa3c35c513, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  UseColorMap: 0
-  UseDepthMap: 0
-  UseEnvironmentMesh: 0
 --- !u!114 &485262190
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -598,6 +586,21 @@ MonoBehaviour:
   m_ExecuteInEditor: 0
   m_Bindings: []
   m_VisualEffect: {fileID: 485262187}
+--- !u!114 &485262191
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 485262185}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e119f57e51432c45b9613fa3c35c513, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  UseColorMap: 0
+  UseDepthMap: 0
+  UseEnvironmentMesh: 0
 --- !u!1 &644645470
 GameObject:
   m_ObjectHideFlags: 0
@@ -1039,6 +1042,8 @@ MonoBehaviour:
     m_Name: ColorMap
   _depthMapProperty:
     m_Name: DepthMap
+  _environmentMeshProperty:
+    m_Name: EnvironmentMesh
   _projectionVectorProperty:
     m_Name: ProjectionVector
   _inverseViewMatrixProperty:
