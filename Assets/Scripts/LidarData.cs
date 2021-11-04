@@ -6,6 +6,8 @@ public struct LidarData
 {
     public RenderTexture DepthTexture;
     public RenderTexture ColorTexture; // color + human stencil
+
+    public Mesh EnvironmentMesh;
     public Matrix4x4 projectionMatrix;
     public Matrix4x4 CameraToWorldMatrix;
     public Vector2 DepthRange;

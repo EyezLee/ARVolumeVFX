@@ -12,6 +12,7 @@ public class LidarDataProcessor : MonoBehaviour
     [SerializeField] ARCameraManager _cameraManager = null;
     [SerializeField] ARCameraBackground _cameraBackground = null;
     [SerializeField] AROcclusionManager _occlusionManager = null;
+    [SerializeField] ARMeshManager _meshManager = null;
     [SerializeField] Shader _textureProcessShader = null;
 
     #endregion
@@ -42,6 +43,7 @@ public class LidarDataProcessor : MonoBehaviour
     [HideInInspector] public RenderTexture _outputTex;
     RenderTexture _colorTexture;
     RenderTexture _depthTexture;
+    [SerializeField] Mesh _enviromentMesh;
 
     public LidarData lidarData = new LidarData();
 
@@ -145,6 +147,22 @@ public class LidarDataProcessor : MonoBehaviour
         _depthTexture.Create();
     }
 
+    // get and process mesh from ARMeshManager
+    private void GetEnvironmentMesh()
+    {
+        int count = _meshManager.meshes.Count;
+        CombineInstance[] instances = new CombineInstance[count];
+
+        for(int i = 0; i < _meshManager.meshes.Count; i++)
+        {
+            instances[i].mesh = _meshManager.meshes[i].sharedMesh;
+            instances[i].transform = _meshManager.meshes[i].transform.localToWorldMatrix;
+        }
+
+        _enviromentMesh = new Mesh();
+        _enviromentMesh.CombineMeshes(instances);
+    }
+
     private void Update()
     {
         // Parameter update
@@ -158,6 +176,8 @@ public class LidarDataProcessor : MonoBehaviour
         // test only
         Graphics.Blit(null, _outputTex, _textureProcessMaterial, 1);
 
+        GetEnvironmentMesh();
+
     }
 
     private void OnRenderObject()
@@ -166,6 +186,8 @@ public class LidarDataProcessor : MonoBehaviour
         {
             CameraToWorldMatrix = CalculateCameraToWorldMatrix(),
             projectionMatrix = _projection,
+            EnvironmentMesh = _enviromentMesh,
+
             DepthRange = new Vector2(_minDepth, _maxDepth),
             DepthTexture = _depthTexture,
             ColorTexture = _colorTexture
