@@ -1,6 +1,3 @@
-Base path: 'C:/Program Files/Unity/Editor/2021.2.0f1/Editor/Data', plugins path 'C:/Program Files/Unity/Editor/2021.2.0f1/Editor/Data/PlaybackEngines'
+Base path: 'C:/Program Files/Unity/Hub/Editor/2021.2.0f1/Editor/Data', plugins path 'C:/Program Files/Unity/Hub/Editor/2021.2.0f1/Editor/Data/PlaybackEngines'
 Cmd: initializeCompiler
-
-Cmd: compileComputeKernel
-  insize=11727 file=D:/Projects/ARVolumeVFX/Assets/VFX/Debug.vfx kernel=CSMain cachingPP=1 ppOnly=0 stripLineD=0 buildPlatform=9 km=<UNITY_VERSION=202120> pKW=UNITY_NO_DXT5nm UNITY_NO_RGBM UNITY_ENABLE_REFLECTION_BUFFERS UNITY_NO_SCREENSPACE_SHADOWS UNITY_PBS_USE_BRDF3 SHADER_API_MOBILE UNITY_LIGHTMAP_DLDR_ENCODING uKW=SHADER_STAGE_COMPUTE platform=d3d11 flags=268435456 reqs=16385 forceDXC=0 forceFXC=0 ok=1 outsize=3712
 
