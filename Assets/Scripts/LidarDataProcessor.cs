@@ -160,6 +160,7 @@ public class LidarDataProcessor : MonoBehaviour
         }
 
         _enviromentMesh = new Mesh();
+        _enviromentMesh.name = "EnviromentMesh";
         _enviromentMesh.CombineMeshes(instances);
     }
 
