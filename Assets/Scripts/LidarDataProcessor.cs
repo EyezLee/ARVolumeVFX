@@ -117,6 +117,7 @@ public class LidarDataProcessor : MonoBehaviour
         // Camera callback setup
         _cameraManager.frameReceived += OnCameraFrameReceived;
         _occlusionManager.frameReceived += OnOcclusionFrameReceived;
+        _meshManager.meshesChanged += GetEnvironmentMesh;
     }
 
     void OnDisable()
@@ -124,6 +125,7 @@ public class LidarDataProcessor : MonoBehaviour
         // Camera callback termination
         _cameraManager.frameReceived -= OnCameraFrameReceived;
         _occlusionManager.frameReceived -= OnOcclusionFrameReceived;
+        _meshManager.meshesChanged -= GetEnvironmentMesh;
     }
 
     private void Start()
@@ -148,7 +150,7 @@ public class LidarDataProcessor : MonoBehaviour
     }
 
     // get and process mesh from ARMeshManager
-    private void GetEnvironmentMesh()
+    private void GetEnvironmentMesh(ARMeshesChangedEventArgs args)
     {
         int count = _meshManager.meshes.Count;
         CombineInstance[] instances = new CombineInstance[count];
@@ -160,6 +162,7 @@ public class LidarDataProcessor : MonoBehaviour
         }
 
         _enviromentMesh = new Mesh();
+        _enviromentMesh.indexFormat = UnityEngine.Rendering.IndexFormat.UInt32; // to get away with 65535 indices limit
         _enviromentMesh.name = "EnviromentMesh";
         _enviromentMesh.CombineMeshes(instances);
     }
@@ -177,7 +180,7 @@ public class LidarDataProcessor : MonoBehaviour
         // test only
         Graphics.Blit(null, _outputTex, _textureProcessMaterial, 1);
 
-        GetEnvironmentMesh();
+        //GetEnvironmentMesh();
 
     }
 
