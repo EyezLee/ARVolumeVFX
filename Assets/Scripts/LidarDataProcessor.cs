@@ -28,8 +28,8 @@ public class LidarDataProcessor : MonoBehaviour
 
     #region Internal objects
 
-    const int _width = 2048;
-    const int _height = 1024;
+    const int _width = 2388;
+    const int _height = 1688;
 
     //  transformation info
     Matrix4x4 _projection;
