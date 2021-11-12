@@ -78,8 +78,11 @@ float4 Fragment(float4 vertex : SV_Position,
     depth = (depth - _DepthRange.x) / (_DepthRange.y - _DepthRange.x);
     depth = lerp(_DepthRange.x, _DepthRange.y, depth);
 
+
     float mask = tex2D(_HumanStencil, tc.zw).x;
 
-    return float4(depth, 0, 0, 1);
+    //if(mask < 0.5) discard;
+    mask = mask > 0.5 ? 1 : 0;
+    return float4(mask * depth, 0, 0, 1);
 }
 #endif
