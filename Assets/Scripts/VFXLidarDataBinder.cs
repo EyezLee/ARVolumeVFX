@@ -79,7 +79,7 @@ public class VFXLidarDataBinder : VFXBinderBase
         var v2w = lidar.lidarData.CameraToWorldMatrix;
         if(vfxMenu.UseColorMap) component.SetTexture(_colorMapProperty, lidar.lidarData.ColorTexture);
         if(vfxMenu.UseDepthMap) component.SetTexture(_depthMapProperty, lidar.lidarData.DepthTexture);
-        if (vfxMenu.UseEnvironmentMesh) component.SetMesh(_environmentMeshProperty, lidar.lidarData.EnvironmentMesh);
+        if (vfxMenu.UseEnvironmentMesh && lidar.lidarData.EnvironmentMesh != null) component.SetMesh(_environmentMeshProperty, lidar.lidarData.EnvironmentMesh);
         component.SetVector4(_projectionVectorProperty, prj);
         component.SetMatrix4x4(_inverseViewMatrixProperty, v2w);
     }
