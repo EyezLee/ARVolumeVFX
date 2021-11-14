@@ -486,7 +486,7 @@ VFXRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 485262185}
   m_Enabled: 1
-  m_CastShadows: 1
+  m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
   m_StaticShadowCaster: 0
@@ -525,7 +525,7 @@ VisualEffect:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 485262185}
   m_Enabled: 1
-  m_Asset: {fileID: 8926484042661614526, guid: 22c577c7f18334141aa24e77788114f7, type: 3}
+  m_Asset: {fileID: 8926484042661614526, guid: 08b1754990c0cb84f91c35e1fcc814c9, type: 3}
   m_InitialEventName: OnPlay
   m_InitialEventNameOverriden: 0
   m_StartSeed: 0
