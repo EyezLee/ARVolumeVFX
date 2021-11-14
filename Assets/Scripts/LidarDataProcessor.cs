@@ -23,6 +23,7 @@ public class LidarDataProcessor : MonoBehaviour
     [SerializeField] float _minDepth = 0.2f;
     [SerializeField] float _maxDepth = 3.2f;
 
+
     #endregion
 
 
@@ -30,6 +31,7 @@ public class LidarDataProcessor : MonoBehaviour
 
     const int _width = 2388;
     const int _height = 1668;
+    float _aspect = 10.0f / 7;
 
     //  transformation info
     Matrix4x4 _projection;
@@ -79,7 +81,7 @@ public class LidarDataProcessor : MonoBehaviour
             _projection = args.projectionMatrix.Value;
 
             // Aspect ratio compensation (camera vs. 16:9)
-            _projection[1, 1] *= (10.0f / 7) / _camera.aspect;
+            _projection[1, 1] *= _aspect / _camera.aspect;
 
         }
 
@@ -92,7 +94,7 @@ public class LidarDataProcessor : MonoBehaviour
         var texAspect = (float)tex1.width / tex1.height;
 
         // Aspect ratio compensation factor for the multiplexer
-        var aspectFix = texAspect / (10.0f / 7);
+        var aspectFix = texAspect / _aspect;
         //_bgMaterial.SetFloat(ShaderID.AspectFix, aspectFix);
         _textureProcessMaterial.SetFloat(ShaderID.AspectFix, aspectFix);
     }
