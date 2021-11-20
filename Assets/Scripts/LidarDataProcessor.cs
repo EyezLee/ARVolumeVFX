@@ -42,10 +42,10 @@ public class LidarDataProcessor : MonoBehaviour
     //Material _bgMaterial;
     Material _textureProcessMaterial;
 
-    [HideInInspector] public RenderTexture _outputTex;
+    //[HideInInspector] public RenderTexture _outputTex;
     RenderTexture _colorTexture;
     RenderTexture _depthTexture;
-    [SerializeField] Mesh _enviromentMesh;
+    Mesh _enviromentMesh;
 
     public LidarData lidarData = new LidarData();
 
