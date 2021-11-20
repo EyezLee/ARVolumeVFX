@@ -1,29 +1,42 @@
 # ARVolumeVFX
- A tool to bridge VFX Graph with processed volumetric data (ig. depth, color, human silhouette, environment data) retrieved from Lidar sensor of an AR enabled device. It enables users to play VFX Graph in AR world to its maximum possibilities.
-One device solution, no any sort of connection needed! (early access, under construction) 
+ A toolkit to create vfx based on the environment and humen 3D data (retrived from lidar sensor on AR enabled devices) in AR. This is a noncommercial tool to explore the possibility of visual effects in AR environment, be prepared to unexpected jittery or unstable results on mobile devices. 
  
 ## Environment Requirements
-   - Unity 2021.2 beta 16 / Unity 2022.1 alpha 12
-   - Universal Rendering Pipeline (to be able to use VFX Graph on AR devices, more info https://portal.productboard.com/unity/1-unity-platform-rendering-visual-effects/c/97-urp-support-compute-capable-devices-only-lit-particles-and-various-features-and-fixes) 
+   - Unity 2021.2 or later
+   - Universal Rendering Pipeline 
    - VFX Graph package
-   - AR Foundation + ARKit
+   - AR Foundation + ARKit (ARCore is not tested, but theoretically it will work) 
    - AR enabled devices with Lidar sensor(IPad pro, IPhone 12 Pro etc.)
 
+## How to Install
+   1. Install and config AR foundation correctly follow [this instruction](https://docs.unity3d.com/Packages/com.unity.xr.arfoundation@4.2/manual/index.html)
+   2. Compile one of the sample scenes from https://github.com/Unity-Technologies/arfoundation-samples and make sure it runs successfully on your device before moving onto the next step.
+   3. Pull the **toolkit** branch from this repo. Build the example scene and try it out. 
+
 ## Components
-   - **LidarDataProcessor**: A component to process occlusion, silhouette and env texture received from devices.
-   - LidarDataShader: using together with LidarDataProcessor together to help process textures.
-   - **LidarDataBinder**: A customized VFX attribute binder derived from Unity built-in VFX attribute binder. To hook processed Lidar data with VFX Graph for vfx to use.
-
-## Installation Instruction
-   - Drag LidarDataProcessor prefeb into your scene
-   - Add LidarData from VFX attribute binder componenet on your VFX object
-   - DONE! 
+   - **LidarDataProcessor** : to process environmental and human data (eg. depth/ stencil), prepared vfx binder ready data. how to use: Add an empty game object to your scene, and add LidarDataProcessor to it, then drag the respective components to the parameter list from your scene. 
+  
+   ![image](https://user-images.githubusercontent.com/18374192/142716620-bc106738-4e9b-4ee5-be61-48b756db3aa5.png)
+   - **VFXLidarDataBinder** : to bind the AR scene data to VFX graph. how to use: Add visual effect and vfx binder components to your vfx gameobject, click the "+" button from vfx binder and select Lidar Data. (in VFXPropertyMenu, select the property you will use in your VFXGraph) 
    
-## Example
-https://user-images.githubusercontent.com/18374192/137863804-2e6d2db7-0a59-4e6f-944c-f552e1dd8ad5.mov
+   ![image](https://user-images.githubusercontent.com/18374192/142717317-f017bd17-8054-41e2-a1cc-0c2a3bd4b562.png)
 
-_debug example of using human silhouette alone with depth data from ipad in VFXGraph
-_
+## VFX Subgraph tools
+   - **Environment Mesh Position** : read vertices from EnvironmentMesh, set positions for particles 
+   
+   ![image](https://user-images.githubusercontent.com/18374192/142717504-a08d9ba1-2499-4565-a409-b750381dd80b.png)
+   - **Human Froxel** : set particle positions to human (refer to DemoExample VFXGraph to see how to use)
+
+   ![image](https://user-images.githubusercontent.com/18374192/142717673-8e74d049-7883-4e2b-aab5-8cfa01bae463.png)
+
+   - **Kill Nonhuman** : remove particles that are outside of human stencil (refer to DemoExample VFXGraph to see how to use)
+
+   ![image](https://user-images.githubusercontent.com/18374192/142717712-b318b097-5462-4b80-9078-9cc8228b85bb.png)
+
+
+   
+## Feature Demonstration 
+
 
 ## Resouce
    https://github.com/keijiro/Rcam2
