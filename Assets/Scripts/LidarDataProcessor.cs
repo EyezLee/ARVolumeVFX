@@ -144,8 +144,8 @@ public class LidarDataProcessor : MonoBehaviour
         //_cameraBackground.customMaterial = _bgMaterial;
         //_cameraBackground.useCustomMaterial = true;
 
-        _outputTex = new RenderTexture(_width, _height, 0);
-        _outputTex.Create();
+        //_outputTex = new RenderTexture(_width, _height, 0);
+        //_outputTex.Create();
         _colorTexture = new RenderTexture(_width, _height, 0);
         _colorTexture.Create();
         _depthTexture = new RenderTexture(_width, _height, 0);
@@ -181,7 +181,7 @@ public class LidarDataProcessor : MonoBehaviour
         Graphics.Blit(null, _colorTexture, _textureProcessMaterial, 0);
         Graphics.Blit(null, _depthTexture, _textureProcessMaterial, 1);
         // test only
-        Graphics.Blit(null, _outputTex, _textureProcessMaterial, 1);
+        //Graphics.Blit(null, _outputTex, _textureProcessMaterial, 1);
 
         //GetEnvironmentMesh();
 

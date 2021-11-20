@@ -13,6 +13,6 @@ public class LidarRTTest : MonoBehaviour
     {
         //GetComponent<Renderer>().material.SetTexture("_MainTex", lidarProcessor._outputTex);
         //GetComponent<Renderer>().material.SetTexture("_MainTex", testTex);
-        GetComponent<RawImage>().texture = lidarProcessor._outputTex;
+        //GetComponent<RawImage>().texture = lidarProcessor._outputTex;
     }
 }
